@@ -13,6 +13,21 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('parent_id')
+                ->nullable()
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->integer('order')->default(0);
+            $table->text('content')->nullable();
+            $table->string('thumb')->nullable();
+            $table->boolean('is_enabled')->default(true);
+            $table->string('seo_title')->nullable();
+            $table->string('seo_text_keys')->nullable();
+            $table->string('seo_description')->nullable();
+            $table->string('locale')->nullable();
             $table->timestamps();
         });
     }

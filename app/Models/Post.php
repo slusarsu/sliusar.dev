@@ -20,6 +20,7 @@ class Post extends Model
         'slug',
         'short',
         'content',
+        'custom_fields',
         'is_enabled',
         'thumb',
         'images',
