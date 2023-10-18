@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
+use App\Traits\ContentTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Illuminate\Support\Carbon;
 
 class Post extends Model
 {
     use HasFactory;
+    use ContentTrait;
 
     protected $fillable = [
         'user_id',
@@ -36,12 +36,6 @@ class Post extends Model
         'images' => 'array',
     ];
 
-    public function scopeActive(Builder $query): void
-    {
-        $query->where('is_enabled', true)
-            ->where('created_at', '<=',Carbon::now());
-    }
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -57,8 +51,8 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function getDate()
+    public function link(): string
     {
-        return $this->created_at->format('d.m.Y H:i');
+        return route('post', $this->slug);
     }
 }

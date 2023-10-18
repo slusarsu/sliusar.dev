@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('{slug}', [PageController::class, 'show'])->name('page');
+Route::get('post/{slug}', [PostController::class, 'show'])->name('post');
+Route::get('tag/{slug}', [TagController::class, 'show'])->name('tag');
+Route::get('category/{slug}', [CategoryController::class, 'show'])->name('category');

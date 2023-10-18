@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\ContentTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Carbon;
-use Illuminate\Database\Eloquent\Builder;
 
 class Page extends Model
 {
     use HasFactory;
+    use ContentTrait;
 
     protected $fillable = [
         'user_id',
@@ -40,14 +40,8 @@ class Page extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function scopeActive(Builder $query): void
+    public function link(): string
     {
-        $query->where('is_enabled', true)
-            ->where('created_at', '<=',Carbon::now());
-    }
-
-    public function getDate()
-    {
-        return $this->created_at->format('d.m.Y H:i');
+        return route('page', $this->slug);
     }
 }

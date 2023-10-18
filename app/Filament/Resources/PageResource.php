@@ -6,23 +6,19 @@ use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
 use App\Services\CustomFieldService;
+use App\Services\PageService;
 use Carbon\Carbon;
-use Filament\Forms;
-use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Tabs\Tab;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\Filter;
@@ -59,19 +55,14 @@ class PageResource extends Resource
                             ->fileAttachmentsDisk('local')
                             ->fileAttachmentsVisibility('storage')
                             ->fileAttachmentsDirectory('public/images')
-                            ->setConvertUrls(false)
-                    ]),
+                            ->setConvertUrls(false),
 
-                Section::make()
-                    ->schema([
                         TinyEditor::make('content')
                             ->fileAttachmentsDisk('local')
                             ->fileAttachmentsVisibility('storage')
                             ->fileAttachmentsDirectory('public/images')
                             ->setConvertUrls(false)
                     ]),
-
-
 
                 Tabs::make('Heading')
                     ->columnSpanFull()
@@ -80,12 +71,17 @@ class PageResource extends Resource
                             ->icon('heroicon-o-folder')
                             ->schema([
 
+                                Select::make('template')
+                                    ->options(PageService::getListOfPageTemplates())
+                                    ->default('page')
+                                    ->required(),
+
                                 DateTimePicker::make('created_at')
                                     ->default(Carbon::now()),
 
                                 Toggle::make('is_enabled')
                                     ->default(true),
-                            ]),
+                            ])->columns(2),
 
                         Tab::make('Images')
                             ->icon('heroicon-o-film')
@@ -125,6 +121,9 @@ class PageResource extends Resource
                     ->sortable(),
 
                 TextColumn::make('slug'),
+
+                TextColumn::make('template')
+                    ->sortable(),
 
                 TextColumn::make('created_at')
                     ->dateTime('d.m.Y H:i')
