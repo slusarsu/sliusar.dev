@@ -14,16 +14,16 @@ class PostService
     {
         return Post::query()
             ->active()
-            ->with(['categories', 'tags'])
+            ->with(['category', 'tags'])
             ->orderBy('created_at', 'desc')
             ->paginate($paginationCount);
     }
 
     public function getOneBySlug($slug)
     {
-        $post =  Post::query()->where('slug', $slug)
+        $post = Post::query()->where('slug', $slug)
             ->active()
-            ->with(['categories', 'tags'])
+            ->with(['category', 'tags'])
             ->first();
 
         if($post) {
@@ -37,9 +37,9 @@ class PostService
     public function getAllByCategorySlug($slug, ?int $paginationCount = 10)
     {
         return Post::query()
-            ->with(['categories', 'tags'])
+            ->with(['category', 'tags'])
             ->active()
-            ->whereHas('categories', function (Builder $query) use ($slug){
+            ->whereHas('category', function (Builder $query) use ($slug){
                 $query->where('slug', $slug);
             })
             ->orderBy('created_at', 'desc')
@@ -49,7 +49,7 @@ class PostService
     public function getAllByTagSlug($slug, ?int $paginationCount = 10)
     {
         return Post::query()
-            ->with(['categories', 'tags'])
+            ->with(['category', 'tags'])
             ->active()
             ->whereHas('tags', function (Builder $query) use ($slug){
                 $query->where('slug', $slug);
@@ -63,12 +63,12 @@ class PostService
         $post = Post::query()->active()->locale();
 
         if(!empty($categorySlug)) {
-            $post = $post->whereHas('categories', function (Builder $query) use ($categorySlug){
+            $post = $post->whereHas('category', function (Builder $query) use ($categorySlug){
                 $query->where('slug', $categorySlug);
             });
         }
 
-        return $post->with(['categories', 'tags'])->orderBy('views', 'desc')->paginate($paginationCount);
+        return $post->with(['category', 'tags'])->orderBy('views', 'desc')->paginate($paginationCount);
     }
 
     public function searchByPhrase(string $phrase, ?int $paginationCount = 10)
@@ -78,7 +78,7 @@ class PostService
             ->where('title', 'like', '%'.$phrase.'%')
             ->orWhere('content', 'like', '%'.$phrase.'%')
             ->orWhere('short', 'like', '%'.$phrase.'%')
-            ->with(['categories', 'tags'])
+            ->with(['category', 'tags'])
             ->orderBy('created_at', 'desc')
             ->paginate($paginationCount);
     }
