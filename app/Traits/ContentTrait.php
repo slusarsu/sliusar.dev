@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Str;
 
 trait ContentTrait
 {
@@ -36,5 +37,10 @@ trait ContentTrait
     public function getDate()
     {
         return $this->created_at->format('d.m.Y H:i');
+    }
+
+    public function short(?int $limit = 50): string
+    {
+        return Str::limit($this->short, $limit, '...');
     }
 }

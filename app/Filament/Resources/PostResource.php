@@ -144,6 +144,9 @@ class PostResource extends Resource
                     ->searchable()
                     ->sortable(),
 
+                TextColumn::make('category.title')
+                    ->sortable(),
+
                 TextColumn::make('slug'),
 
                 TextColumn::make('created_at')
