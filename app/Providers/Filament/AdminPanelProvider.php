@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Services\SettingService;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -31,7 +32,7 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Blue,
             ])
-            ->brandName('My blog')
+            ->brandName(SettingService::value('site_name'))
             ->sidebarCollapsibleOnDesktop()
             ->profile()
             ->maxContentWidth('full')

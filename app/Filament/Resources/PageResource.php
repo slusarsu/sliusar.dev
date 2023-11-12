@@ -17,6 +17,8 @@ use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -32,7 +34,11 @@ class PageResource extends Resource
 {
     protected static ?string $model = Page::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+
+    protected static ?int $navigationSort = 0;
+
+    protected static ?string $navigationGroup = 'Content';
 
     public static function form(Form $form): Form
     {
@@ -97,7 +103,18 @@ class PageResource extends Resource
                         Tab::make('Custom Fields')
                             ->icon('heroicon-o-document-text')
                             ->schema([
+                                Select::make('custom_fields.fields_set')
+                                    ->live()
+                                    ->options( CustomFieldService::fieldsSet()),
 
+                                Section::make()
+                                    ->hidden(fn (Get $get): bool => ! $get('custom_fields.fields_set'))
+                                    ->schema(function(Get $get) {
+                                        if($get('custom_fields.fields_set')) {
+                                            return CustomFieldService::fields($get('custom_fields.fields_set')) ?? [];
+                                        }
+                                        return [];
+                                    }),
                             ]),
 
                         Tab::make('SEO')

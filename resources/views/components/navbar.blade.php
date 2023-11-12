@@ -3,7 +3,7 @@
         <div class="container mx-auto flex items-center justify-between">
             <!-- Logo / Site Name -->
             <a href="{{route('home')}}" class="text-2xl font-semibold text-white">
-                Sliusar Vitalii
+                {{$settings['site_name'] ?? ''}}
             </a>
 
             <!-- Desktop Menu -->
@@ -22,18 +22,21 @@
                 </svg>
             </button>
         </div>
+
+        <!-- Mobile Menu (conditionally rendered) -->
+        <div x-show="open"
+             @click.away="open = false"
+             class="w-11/12 right-0 absolute top-15 mt-2 bg-white border rounded shadow-2xl lg:hidden"
+        >
+            <div class="py-2">
+                @foreach($links as $link)
+                    <a href="{{$link['url']}}" class="block px-4 py-2 text-gray-800">
+                        {{$link['text']}}
+                    </a>
+                @endforeach
+            </div>
+        </div>
     </nav>
 
-    <!-- Mobile Menu (conditionally rendered) -->
-    <div x-show="open"
-         @click.away="open = false"
-         class="absolute top-12 right-3 mt-2 bg-white border rounded-lg shadow-2xl lg:hidden"
-    >
-        <div class="py-2">
-            <a href="#" class="block px-4 py-2 text-gray-800">
-                Categories
-            </a>
-            <a href="#" class="block px-4 py-2 text-gray-800">About Me</a>
-        </div>
-    </div>
+
 </div>

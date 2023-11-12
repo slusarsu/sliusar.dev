@@ -20,4 +20,11 @@ class CustomFieldService
     {
         return static::$customFields[$key] ?? [];
     }
+
+    public static function fieldsSet(): array
+    {
+        $myArray = array_keys(static::$customFields);
+
+        return array_combine($myArray,$myArray);
+    }
 }
