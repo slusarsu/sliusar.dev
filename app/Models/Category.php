@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\ContentTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
+    use ContentTrait;
     use HasFactory;
 
     protected $fillable = [
@@ -60,5 +62,10 @@ class Category extends Model
                 self::formatTree($category->sub_cat, $allCategories);
             }
         }
+    }
+
+    public function link(): string
+    {
+        return route('category', $this->slug);
     }
 }

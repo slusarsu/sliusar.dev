@@ -13,10 +13,23 @@
 
         <x-navbar/>
 
-        <div class="container mx-auto my-5 px-4 lg:px-0">
+        <div
+            @class([
+                'container mx-auto my-5 px-4 lg:px-0' => empty($sidebar),
+                'container mx-auto my-5 px-4 lg:px-0 grid grid-cols-1 gap-y-4 lg:grid-cols-4 lg:gap-4' => !empty($sidebar),
+            ])
+        >
 
-            @yield('content')
-
+            <div class="col-span-3">
+                @yield('content')
+            </div>
+            @if(!empty($sidebar))
+                <div class="col-span-1">
+                    <div class="bg-white border rounded p-4 text-gray-800">
+                        <h2>Category</h2>
+                    </div>
+                </div>
+            @endif
         </div>
 
     </body>

@@ -34,7 +34,7 @@ trait ContentTrait
         return $images;
     }
 
-    public function getDate()
+    public function date()
     {
         return $this->created_at->format('d.m.Y H:i');
     }
