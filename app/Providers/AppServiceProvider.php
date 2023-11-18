@@ -5,8 +5,6 @@ namespace App\Providers;
 use App\Services\CustomFieldService;
 use App\Services\SettingService;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\DateTimePicker;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -15,7 +13,6 @@ use Filament\Forms\Components\TextInput;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use function Laravel\Prompts\select;
 
 class AppServiceProvider extends ServiceProvider
 {
