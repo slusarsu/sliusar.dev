@@ -14,6 +14,13 @@ class PostController extends Controller
         $this->postService = $postService;
     }
 
+    public function index(Request $request)
+    {
+        $posts = $this->postService->getAll(15);
+
+        return view('template.posts', compact('posts'));
+    }
+
     public function show(Request $request, $slug)
     {
         $post = $this->postService->getOneBySlug($slug);

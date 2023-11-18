@@ -7,9 +7,18 @@
 
 @section('content')
 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{$page->title}}</li>
+        </ol>
+    </nav>
+
     <div class="card">
+        <div class="card-header">
+            {{$page->title}}
+        </div>
         <div class="card-body">
-            <h5 class="card-title">{{$page->title}}</h5>
             <p class="card-text">
                 {!! $page->content !!}
             </p>

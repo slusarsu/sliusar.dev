@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('{slug}', [PageController::class, 'show'])->name('page');
-Route::get('post/{slug}', [PostController::class, 'show'])->name('post');
-Route::get('tag/{slug}', [TagController::class, 'show'])->name('tag');
-Route::get('category/{slug}', [CategoryController::class, 'show'])->name('category');
+Route::get('posts', [PostController::class, 'index'])->name('posts');
+Route::get('posts/{slug}', [PostController::class, 'show'])->name('post');
+Route::get('tags/{slug}', [TagController::class, 'show'])->name('tag');
+Route::get('categories/{slug}', [CategoryController::class, 'show'])->name('category');
