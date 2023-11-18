@@ -17,9 +17,9 @@ class Navbar extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(string $hash)
     {
-        $this->links = MenuService::links('C79aWfsC3xCjPD1');
+        $this->links = MenuService::links($hash);
     }
 
     /**
