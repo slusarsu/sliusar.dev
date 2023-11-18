@@ -17,7 +17,6 @@ class CategoryService
             ->whereNull('parent_id')
             ->withCount('posts')
             ->active()
-            ->locale()
             ->orderby('order')
             ->get();
     }

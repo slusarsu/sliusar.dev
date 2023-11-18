@@ -9,6 +9,7 @@ use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Tabs\Tab;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
@@ -58,12 +59,14 @@ class Settings extends Page implements HasForms
                     ->tabs([
                         Tab::make('Global')
                             ->schema([
-                                TextInput::make('site_name')
+                                TextInput::make('site_name'),
+                                Textarea::make('header_codes'),
+                                Textarea::make('footer_codes'),
                             ]),
 
                         Tab::make('Home Page')
                             ->schema([
-                                TextInput::make('navbar_menu_hash')
+                                TextInput::make('navbar_menu_hash'),
                             ]),
 
                         Tab::make('SEO')

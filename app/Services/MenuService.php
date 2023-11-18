@@ -6,7 +6,7 @@ use App\Models\Menu;
 
 class MenuService
 {
-    public static function links(string $hash)
+    public static function links(string $hash = '')
     {
         $menu = Menu::query()->where('hash', $hash)->first();
 
