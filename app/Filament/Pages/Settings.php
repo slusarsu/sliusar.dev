@@ -95,4 +95,22 @@ class Settings extends Page implements HasForms
             ->send();
     }
 
+    public function getActions(): array
+    {
+        return [
+
+            Action::make('Clear Cache')
+                ->action(function () {
+                    Artisan::call('optimize:clear');
+
+                    Notification::make()
+                        ->title('Fixed!')
+                        ->success()
+                        ->send();
+                })
+                ->requiresConfirmation()
+                ->color('success'),
+        ];
+    }
+
 }
