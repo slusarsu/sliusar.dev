@@ -7,9 +7,13 @@
 
 @section('content')
 
-    <article class="bg-white border rounded p-4 text-gray-800">
-        <h2 class="text-2xl font-semibold text-indigo-950 text-center">{{$page->title}}</h2>
-        <p class="pt-4">{!! $page->content !!}</p>
-    </article>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{$page->title}}</h5>
+            <p class="card-text">
+                {!! $page->content !!}
+            </p>
+        </div>
+    </div>
 
 @endsection

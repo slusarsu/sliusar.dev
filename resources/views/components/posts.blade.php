@@ -3,36 +3,24 @@
 ])
 
 @if(!empty($posts))
+    @foreach($posts as $post)
 
-    <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-sm-12">
-                @foreach($posts as $post)
-                    <div class="card">
-                        <div class="card-header pb-0">
-                            <a href="{{$post->link()}}">
-                                <h5>{{$post->title}}</h5>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <p>{!! $post->short !!}</p>
-                        </div>
-
-                        <div class="d-flex">
-                            <div class="p-2">
-                                {{$post->date()}}
-                            </div>
-
-                            <div class="p-2">
-                                <a href="{{$post->category->link()}}">{{$post->category->title}}</a>
-                            </div>
-                        </div>
+        <div class="card my-3">
+            <div class="card-body">
+                <a href="{{$post->link()}}"><h5 class="card-title">{{$post->title}}</h5></a>
+                <p class="card-text">{!! $post->short !!}</p>
+                <div class="d-flex justify-content-between p-2">
+                    <div>
+                        <a href="{{$post->category->link()}}">{{$post->category->title}}</a>
                     </div>
-                @endforeach
+
+                    <div>
+                        {{$post->date()}}
+                    </div>
+                </div>
             </div>
         </div>
+    @endforeach
 
-    </div>
-
+    {{$posts->links()}}
 @endif

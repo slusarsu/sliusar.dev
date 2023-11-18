@@ -7,40 +7,45 @@
 
 @section('content')
 
-    <article class="bg-white border rounded p-4 text-gray-800">
-
-        <h2 class="text-2xl font-semibold text-indigo-950 text-center mb-5">
-            {{$page->title}}
-        </h2>
-
-        <div class="w-56 h-56 lg:w-64 lg:h-64 mx-auto">
-            <img
-                class="rounded-full border border-gray-100 shadow-sm"
-                src="{{$page->thumb()}}"
-                alt="user image"
-            />
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{$page->title}}</h5>
+            <p class="card-text">
+                <img src="{{$page->thumb()}}" class="rounded-circle mx-auto d-block" alt="{{$page->title}}" width="300">
+                {!! $page->content !!}
+            </p>
         </div>
+    </div>
 
-        <div class="p-4 mt-4">
-            {!! $page->content !!}
+    <h3 class="text-center my-3">Education</h3>
+
+    <div class="card">
+        <div class="card-body">
+            {!! $page->custom_fields['education'] !!}
         </div>
+    </div>
 
-        <h3 class="text-2xl font-semibold text-indigo-950 text-center mb-5">
-            Jobs
-        </h3>
+    <h3 class="text-center my-3">Jobs</h3>
 
-
+    <div class="list-group my-3">
         @foreach($page->custom_fields['jobs'] as $job)
-            <div class="bg-white border-2 rounded p-4">
-                {{$job['company']}}
-            </div>
+
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{$job['company']}}</h5>
+                    <small class="text-body-secondary">
+                        {{$job['start_date']}} - {{$job['end_date'] ?? 'Now'}}
+                    </small>
+                </div>
+                <p class="mb-1">{{$job['position']}}</p>
+                <small class="text-body-secondary">{!! $job['description'] !!}</small>
+
+                @foreach($job['technologies'] as $key => $tech)
+                    <span class="badge bg-secondary">{{$tech}}</span>
+                @endforeach
+            </a>
         @endforeach
 
-{{--        @dd($page->custom_fields['jobs'])--}}
-
-
-
-
-    </article>
+    </div>
 
 @endsection

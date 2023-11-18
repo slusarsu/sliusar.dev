@@ -1,42 +1,39 @@
-<div x-data="{ open: false }" class="bg-indigo-950">
-    <nav class="container mx-auto py-4 px-2">
-        <div class="container mx-auto flex items-center justify-between">
-            <!-- Logo / Site Name -->
-            <a href="{{route('home')}}" class="text-2xl font-semibold text-white">
-                {{$settings['site_name'] ?? ''}}
-            </a>
-
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex space-x-4">
-                @foreach($links as $link)
-                    <a href="{{$link['url']}}" class="text-white">
-                        {{$link['text']}}
-                    </a>
-                @endforeach
+<div class="nav-bar bg-body-tertiary mb-3">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{route('home')}}">
+                    {{$settings['site_name'] ?? ''}}
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        @foreach($links as $link)
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{{$link['url']}}">
+                                    {{$link['text']}}
+                                </a>
+                            </li>
+                        @endforeach
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    </div>
+                </div>
             </div>
-
-            <!-- Mobile Menu Button (Hamburger Icon) -->
-            <button @click="open = !open" class="lg:hidden text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Mobile Menu (conditionally rendered) -->
-        <div x-show="open"
-             @click.away="open = false"
-             class="w-11/12 right-0 absolute top-15 mt-2 bg-white border rounded shadow-2xl lg:hidden"
-        >
-            <div class="py-2">
-                @foreach($links as $link)
-                    <a href="{{$link['url']}}" class="block px-4 py-2 text-gray-800">
-                        {{$link['text']}}
-                    </a>
-                @endforeach
-            </div>
-        </div>
-    </nav>
-
-
+        </nav>
+    </div>
 </div>
