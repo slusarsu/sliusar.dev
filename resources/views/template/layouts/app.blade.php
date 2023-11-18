@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/tokyo-night-dark.min.css">
         <link rel="stylesheet" href="{{asset('template/css/main.css')}}">
 
-        {!! $settings['header_codes'] !!}
+        {!! $settings['header_codes'] ?? ''!!}
 
     </head>
     <body>
