@@ -26,7 +26,9 @@
 
             <div class="d-flex justify-content-between p-2">
                 <div>
-                    <a href="{{$post->category->link()}}">{{$post->category->title}}</a>
+                    @if(!empty($post->category))
+                        <a href="{{$post->category->link()}}">{{$post->category->title}}</a>
+                    @endif
                 </div>
 
                 <div>
