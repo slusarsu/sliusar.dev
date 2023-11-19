@@ -41,4 +41,5 @@ class PageController extends Controller
             compact('page', 'thumb', 'images')
         );
     }
+
 }

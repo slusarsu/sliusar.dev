@@ -28,9 +28,9 @@
                             </ul>
                         </li>
                     </ul>
-                    <div>
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    </div>
+                    <form action="{{route('post-search')}}">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="s">
+                    </form>
                 </div>
             </div>
         </nav>

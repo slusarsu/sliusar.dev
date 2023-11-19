@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         $posts = $this->postService->getAll(15);
 
-        return view('template.posts', compact('posts'));
+        return view('template.posts.index', compact('posts'));
     }
 
     public function show(Request $request, $slug)
@@ -32,6 +32,21 @@ class PostController extends Controller
         $thumb = $post->thumb();
         $images = $post->images();
 
-        return view('template.post', compact('post', 'thumb', 'images'));
+        return view('template.posts.post', compact('post', 'thumb', 'images'));
+    }
+
+    public function search(Request $request)
+    {
+        $phrase = $request->get('s');
+
+
+        if(!$phrase) {
+            return redirect('/');
+        }
+
+        $posts = $this->postService->searchByPhrase($phrase, 15);
+
+
+        return view('template.posts.search', compact('posts', 'phrase'));
     }
 }

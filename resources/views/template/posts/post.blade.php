@@ -33,6 +33,15 @@
                     {{$post->date()}}
                 </div>
             </div>
+            <dv>
+                @foreach($post->tags as $tag)
+
+                    <a href="{{$tag->link()}}">
+                        <span class="badge bg-secondary">{{$tag->title}}</span>
+                    </a>
+
+                @endforeach
+            </dv>
         </div>
     </div>
 

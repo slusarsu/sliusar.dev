@@ -16,10 +16,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/post-search', [PostController::class, 'search'])->name('post-search');
 
 Route::get('/', [PageController::class, 'index'])->name('home');
-Route::get('{slug}', [PageController::class, 'show'])->name('page');
+
 Route::get('posts', [PostController::class, 'index'])->name('posts');
 Route::get('posts/{slug}', [PostController::class, 'show'])->name('post');
+
+Route::get('tags', [TagController::class, 'index'])->name('tags');
 Route::get('tags/{slug}', [TagController::class, 'show'])->name('tag');
+
+Route::get('categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('categories/{slug}', [CategoryController::class, 'show'])->name('category');
+
+Route::get('{slug}', [PageController::class, 'show'])->name('page');
