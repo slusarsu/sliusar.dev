@@ -17,7 +17,7 @@
     </head>
     <body>
 
-        <x-navbar :hash="$settings['navbar_menu_hash']"/>
+        <x-navbar :hash="$settings['navbar_menu_hash'] ?? ''"/>
 
         <div class="container">
             @yield('content')
