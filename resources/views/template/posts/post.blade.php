@@ -16,7 +16,7 @@
 
     <div class="card">
         <div class="card-header">
-            {{$post->title}}
+            <h1 class="display-6">{{$post->title}}</h1>
         </div>
         <div class="card-body">
 
@@ -31,19 +31,32 @@
                     @endif
                 </div>
 
-                <div>
-                    {{$post->date()}}
+                <div class="d-flex gap-2">
+                    <div>
+                        <i class="bi bi-eye"></i> {{$post->views}}
+                    </div>
+
+                    <div>
+                        <i class="bi bi-calendar-check-fill"></i>
+                        {{$post->date()}}
+                    </div>
+
                 </div>
             </div>
+
             <dv>
                 @foreach($post->tags as $tag)
 
                     <a href="{{$tag->link()}}">
-                        <span class="badge bg-secondary">{{$tag->title}}</span>
+                                <span class="badge bg-secondary">
+                                    <i class="bi bi-tag-fill"></i>
+                                    {{$tag->title}}
+                                </span>
                     </a>
 
                 @endforeach
             </dv>
+
         </div>
     </div>
 

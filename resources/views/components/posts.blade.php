@@ -7,7 +7,9 @@
 
         <div class="card my-3">
             <div class="card-body">
-                <a href="{{$post->link()}}"><h5 class="card-title">{{$post->title}}</h5></a>
+                <a href="{{$post->link()}}">
+                    <h3 class="card-title">{{$post->title}}</h3>
+                </a>
                 <p class="card-text">{!! $post->short !!}</p>
                 <div class="d-flex justify-content-between p-2">
                     <div>
@@ -16,8 +18,16 @@
                         @endif
                     </div>
 
-                    <div>
-                        {{$post->date()}}
+                    <div class="d-flex gap-2">
+                        <div>
+                            <i class="bi bi-eye"></i> {{$post->views}}
+                        </div>
+
+                        <div>
+                            <i class="bi bi-calendar-check-fill"></i>
+                            {{$post->date()}}
+                        </div>
+
                     </div>
                 </div>
 
@@ -25,7 +35,10 @@
                     @foreach($post->tags as $tag)
 
                         <a href="{{$tag->link()}}">
-                            <span class="badge bg-secondary">{{$tag->title}}</span>
+                                <span class="badge bg-secondary">
+                                    <i class="bi bi-tag-fill"></i>
+                                    {{$tag->title}}
+                                </span>
                         </a>
 
                     @endforeach

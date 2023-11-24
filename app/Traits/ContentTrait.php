@@ -36,6 +36,11 @@ trait ContentTrait
 
     public function date()
     {
+        return $this->created_at->format('d.m.Y');
+    }
+
+    public function dateTime()
+    {
         return $this->created_at->format('d.m.Y H:i');
     }
 
