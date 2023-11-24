@@ -35,10 +35,10 @@
                     @foreach($post->tags as $tag)
 
                         <a href="{{$tag->link()}}">
-                                <span class="badge bg-secondary">
-                                    <i class="bi bi-tag-fill"></i>
-                                    {{$tag->title}}
-                                </span>
+                            <span class="badge bg-secondary">
+                                <i class="bi bi-tag-fill"></i>
+                                {{$tag->title}}
+                            </span>
                         </a>
 
                     @endforeach

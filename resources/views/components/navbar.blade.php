@@ -29,7 +29,7 @@
                         </li>
                     </ul>
                     <form action="{{route('post-search')}}">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="s">
+                        <input class="form-control me-2" type="search" placeholder="Пошук" aria-label="Пошук" name="s">
                     </form>
                 </div>
             </div>

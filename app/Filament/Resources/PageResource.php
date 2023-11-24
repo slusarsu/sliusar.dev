@@ -40,6 +40,26 @@ class PageResource extends Resource
 
     protected static ?string $navigationGroup = 'Content';
 
+    public static function getNavigationGroup(): string
+    {
+        return trans('dashboard.content');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return trans('dashboard.pages');
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return trans('dashboard.pages');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return trans('dashboard.page');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -47,23 +67,27 @@ class PageResource extends Resource
                 Section::make()
                     ->schema([
                         TextInput::make('title')
+                            ->label(trans('dashboard.title'))
                             ->required()
                             ->lazy()
                             ->afterStateUpdated(fn (string $context, $state, callable $set) => $context === 'create' ? $set('slug', Str::slug($state)) : null)
                             ->columnSpanFull(),
 
                         TextInput::make('slug')
+                            ->label(trans('dashboard.slug'))
                             ->required()
                             ->unique(self::getModel(), 'slug', ignoreRecord: true)
                             ->columnSpanFull(),
 
                         TinyEditor::make('short')
+                            ->label(trans('dashboard.short'))
                             ->fileAttachmentsDisk('local')
                             ->fileAttachmentsVisibility('storage')
                             ->fileAttachmentsDirectory('public/images')
                             ->setConvertUrls(false),
 
                         TinyEditor::make('content')
+                            ->label(trans('dashboard.content'))
                             ->fileAttachmentsDisk('local')
                             ->fileAttachmentsVisibility('storage')
                             ->fileAttachmentsDirectory('public/images')
@@ -74,6 +98,7 @@ class PageResource extends Resource
                     ->columnSpanFull()
                     ->tabs([
                         Tab::make('setting')
+                            ->label(trans('dashboard.settings'))
                             ->icon('heroicon-o-folder')
                             ->schema([
 
@@ -83,24 +108,30 @@ class PageResource extends Resource
                                     ->required(),
 
                                 DateTimePicker::make('created_at')
+                                    ->label(trans('dashboard.created'))
                                     ->default(Carbon::now()),
 
                                 Toggle::make('is_enabled')
+                                    ->label(trans('dashboard.enabled'))
                                     ->default(true),
                             ])->columns(2),
 
                         Tab::make('Images')
+                            ->label(trans('dashboard.images'))
                             ->icon('heroicon-o-film')
                             ->schema([
                                 FileUpload::make('thumb')
+                                    ->label(trans('dashboard.thumb'))
                                     ->directory('images')
                                     ->image(),
 
                                 FileUpload::make('images')
+                                    ->label(trans('dashboard.images'))
                                     ->directory('images')->multiple()->image()
                             ])  ,
 
                         Tab::make('Custom Fields')
+                            ->label(trans('dashboard.custom_fields'))
                             ->icon('heroicon-o-document-text')
                             ->schema([
                                 Select::make('custom_fields.fields_set')
@@ -131,18 +162,22 @@ class PageResource extends Resource
                 TextColumn::make('id')
                     ->sortable(),
 
-                ToggleColumn::make('is_enabled'),
+                ToggleColumn::make('is_enabled')
+                    ->label(trans('dashboard.enabled')),
 
                 TextColumn::make('title')
+                    ->label(trans('dashboard.title'))
                     ->searchable()
                     ->sortable(),
 
-                TextColumn::make('slug'),
+                TextColumn::make('slug')
+                    ->label(trans('dashboard.slug')),
 
                 TextColumn::make('template')
                     ->sortable(),
 
                 TextColumn::make('created_at')
+                    ->label(trans('dashboard.created'))
                     ->dateTime('d.m.Y H:i')
                     ->sortable(),
             ])

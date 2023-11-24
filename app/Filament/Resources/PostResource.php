@@ -40,6 +40,26 @@ class PostResource extends Resource
 
     protected static ?string $navigationGroup = 'Content';
 
+    public static function getNavigationGroup(): string
+    {
+        return trans('dashboard.content');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return trans('dashboard.posts');
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return trans('dashboard.posts');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return trans('dashboard.post');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -47,23 +67,27 @@ class PostResource extends Resource
                 Section::make()
                     ->schema([
                         TextInput::make('title')
+                            ->label(trans('dashboard.title'))
                             ->required()
                             ->lazy()
                             ->afterStateUpdated(fn (string $context, $state, callable $set) => $context === 'create' ? $set('slug', Str::slug($state)) : null)
                             ->columnSpanFull(),
 
                         TextInput::make('slug')
+                            ->label(trans('dashboard.slug'))
                             ->required()
                             ->unique(self::getModel(), 'slug', ignoreRecord: true)
                             ->columnSpanFull(),
 
                         TinyEditor::make('short')
+                            ->label(trans('dashboard.short'))
                             ->fileAttachmentsDisk('local')
                             ->fileAttachmentsVisibility('storage')
                             ->fileAttachmentsDirectory('public/images')
                             ->setConvertUrls(false),
 
                         TinyEditor::make('content')
+                            ->label(trans('dashboard.content'))
                             ->fileAttachmentsDisk('local')
                             ->fileAttachmentsVisibility('storage')
                             ->fileAttachmentsDirectory('public/images')
@@ -74,50 +98,63 @@ class PostResource extends Resource
                     ->columnSpanFull()
                     ->tabs([
                         Tab::make('setting')
+                            ->label(trans('dashboard.settings'))
                             ->icon('heroicon-o-folder')
                             ->schema([
 
                                 Select::make('category_id')
+                                    ->label(trans('dashboard.category'))
                                     ->preload()
                                     ->relationship('category', 'title'),
 
                                 DateTimePicker::make('created_at')
+                                    ->label(trans('dashboard.created'))
                                     ->default(Carbon::now()),
 
                                 Select::make('tags')
+                                    ->label(trans('dashboard.tags'))
                                     ->multiple()
                                     ->preload()
                                     ->relationship('tags', 'title')
                                     ->createOptionForm([
                                         TextInput::make('title')
+                                            ->label(trans('dashboard.title'))
                                             ->required()
                                             ->lazy()
                                             ->unique(Tag::class, 'title', ignoreRecord: true)
                                             ->afterStateUpdated(fn (string $context, $state, callable $set) => $context === 'createOption' ? $set('slug', Str::slug($state)) : null),
 
                                         TextInput::make('slug')
+                                            ->label(trans('dashboard.slug'))
                                             ->required()
                                             ->unique(Tag::class, 'slug', ignoreRecord: true),
 
                                     ]),
 
                                 Toggle::make('is_enabled')
+                                    ->label(trans('dashboard.enabled'))
                                     ->default(true),
 
                             ])->columns(2),
 
                         Tab::make('Images')
+                            ->label(trans('dashboard.images'))
                             ->icon('heroicon-o-film')
                             ->schema([
                                 FileUpload::make('thumb')
+                                    ->label(trans('dashboard.thumb'))
                                     ->directory('images')
                                     ->image(),
 
                                 FileUpload::make('images')
-                                    ->directory('images')->multiple()->image()
+                                    ->label(trans('dashboard.images'))
+                                    ->directory('images')
+                                    ->multiple()
+                                    ->image()
                             ])  ,
 
                         Tab::make('Custom Fields')
+                            ->label(trans('dashboard.custom_fields'))
                             ->icon('heroicon-o-document-text')
                             ->schema(function($record) {
 
@@ -142,18 +179,23 @@ class PostResource extends Resource
                 TextColumn::make('id')
                     ->sortable(),
 
-                ToggleColumn::make('is_enabled'),
+                ToggleColumn::make('is_enabled')
+                    ->label(trans('dashboard.enabled')),
 
                 TextColumn::make('title')
+                    ->label(trans('dashboard.title'))
                     ->searchable()
                     ->sortable(),
 
                 TextColumn::make('category.title')
+                    ->label(trans('dashboard.category'))
                     ->sortable(),
 
-                TextColumn::make('slug'),
+                TextColumn::make('slug')
+                    ->label(trans('dashboard.slug')),
 
                 TextColumn::make('created_at')
+                    ->label(trans('dashboard.created'))
                     ->dateTime('d.m.Y H:i')
                     ->sortable(),
             ])

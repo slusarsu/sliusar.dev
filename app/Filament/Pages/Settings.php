@@ -16,6 +16,7 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Spatie\Valuestore\Valuestore;
@@ -25,11 +26,11 @@ class Settings extends Page implements HasForms
     use InteractsWithForms;
     protected static ?string $navigationIcon = 'heroicon-o-adjustments-vertical';
 
+    protected static string $view = 'filament.pages.settings';
+
     protected static ?int $navigationSort = 1;
 
     protected static ?string $navigationGroup = 'System';
-
-    protected static string $view = 'filament.pages.settings';
 
     public ?array $data = [];
     private Valuestore $valueStore;
@@ -37,6 +38,21 @@ class Settings extends Page implements HasForms
      * @var array|string[]
      */
     private array $parameters;
+
+    public static function getNavigationGroup(): string
+    {
+        return trans('dashboard.system');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return trans('dashboard.settings');
+    }
+
+    public function getTitle(): string | Htmlable
+    {
+        return trans('dashboard.settings');
+    }
 
     public function __construct()
     {

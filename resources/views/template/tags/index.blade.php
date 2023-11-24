@@ -11,7 +11,10 @@
 
             <a href="{{$tag->link()}}">
                 <h2>
-                    <span class="badge bg-secondary">{{$tag->title}}</span>
+                    <span class="badge bg-secondary">
+                        <i class="bi bi-tag-fill"></i>
+                        {{$tag->title}}
+                    </span>
                 </h2>
             </a>
 

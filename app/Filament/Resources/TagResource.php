@@ -25,6 +25,26 @@ class TagResource extends Resource
 
     protected static ?string $navigationGroup = 'Content';
 
+    public static function getNavigationGroup(): string
+    {
+        return trans('dashboard.content');
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return trans('dashboard.tags');
+    }
+
+    public static function getPluralLabel(): ?string
+    {
+        return trans('dashboard.tags');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return trans('dashboard.tag');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -32,12 +52,14 @@ class TagResource extends Resource
                 Section::make()
                     ->schema([
                         TextInput::make('title')
+                            ->label(trans('dashboard.title'))
                             ->required()
                             ->lazy()
                             ->afterStateUpdated(fn (string $context, $state, callable $set) => $context === 'create' ? $set('slug', Str::slug($state)) : null)
                             ->columnSpanFull(),
 
                         TextInput::make('slug')
+                            ->label(trans('dashboard.slug'))
                             ->required()
                             ->unique(self::getModel(), 'slug', ignoreRecord: true)
                             ->columnSpanFull(),
@@ -53,12 +75,15 @@ class TagResource extends Resource
                     ->sortable(),
 
                 TextColumn::make('title')
+                    ->label(trans('dashboard.title'))
                     ->searchable()
                     ->sortable(),
 
-                TextColumn::make('slug'),
+                TextColumn::make('slug')
+                    ->label(trans('dashboard.slug')),
 
                 TextColumn::make('created_at')
+                    ->label(trans('dashboard.created'))
                     ->dateTime('d.m.Y H:i')
                     ->sortable(),
             ])
