@@ -79,6 +79,11 @@ class AppServiceProvider extends ServiceProvider
                     'MSSQL' => 'MSSQL',
                     'ASP .NET' => 'ASP .NET',
                     'Angular.js' => 'Angular.js',
+                    'Wordpress' => 'Wordpress',
+                    'Joomla' => 'Joomla',
+                    'Hosting' => 'Hosting',
+                    'OpenCart' => 'OpenCart',
+                    'CMS' => 'CMS',
                 ])->columnSpan('full'),
             ])
                 ->reorderableWithButtons()
