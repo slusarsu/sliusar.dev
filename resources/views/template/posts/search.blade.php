@@ -2,6 +2,15 @@
 
 @section('content')
 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{route('home')}}">Головна</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <a href="{{route('post-search')}}">Пошук</a>
+            </li>
+        </ol>
+    </nav>
+
     <div class="card">
         <div class="card-body">
             <form action="{{route('post-search')}}">
