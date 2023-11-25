@@ -45,7 +45,7 @@
                     <div class="d-lg-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{$job['company']}}</h5>
                         <small class="text-body-secondary">
-                            {{$job['start_date']}} - {{$job['end_date'] ?? 'Now'}}
+                            {{$job['start_date']}} - {{$job['end_date'] ?? 'Now'}} ({{$job['period'] ?? ''}})
                         </small>
                     </div>
                     <p class="mb-1">{{$job['position']}}</p>
