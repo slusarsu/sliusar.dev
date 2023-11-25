@@ -83,6 +83,7 @@ class Settings extends Page implements HasForms
                         Tab::make('Home Page')
                             ->schema([
                                 TextInput::make('navbar_menu_hash'),
+                                TextInput::make('footer_menu_hash'),
                             ]),
 
                         Tab::make('SEO')

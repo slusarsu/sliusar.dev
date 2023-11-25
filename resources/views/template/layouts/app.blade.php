@@ -22,6 +22,8 @@
 
         <div class="container">
             @yield('content')
+
+            @include('template.partials.footer')
         </div>
 
         <script src="{{asset('template/js/popper.min.js')}}"></script>
