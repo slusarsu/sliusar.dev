@@ -103,6 +103,7 @@ class PageResource extends Resource
                             ->schema([
 
                                 Select::make('template')
+                                    ->label(trans('dashboard.template'))
                                     ->options(PageService::getListOfPageTemplates())
                                     ->default('page')
                                     ->required(),

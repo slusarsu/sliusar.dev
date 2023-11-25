@@ -28,7 +28,7 @@
 
     <div class="card">
         <div class="card-body">
-            {!! $page->custom_fields['education'] !!}
+            {!! $page->custom_fields['education'] ?? ''!!}
         </div>
     </div>
 
