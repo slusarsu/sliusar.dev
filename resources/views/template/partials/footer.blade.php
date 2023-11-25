@@ -12,7 +12,7 @@
             <ul class="list-unstyled text-small">
                 @foreach(menu($settings['footer_menu_hash'] ?? '') as $link)
                     <li class="mb-1">
-                        <a class="link-secondary text-decoration-none" href="{{$link['url']}}">
+                        <a class="link-secondary text-decoration-none" href="{{$link['url']}}" target="_blank">
                             {{$link['text']}}
                         </a>
                     </li>
