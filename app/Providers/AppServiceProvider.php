@@ -68,6 +68,11 @@ class AppServiceProvider extends ServiceProvider
                     'Vue 2' => 'Vue 2',
                     'Alpine js' => 'Alpine js',
                     'jQuery' => 'jQuery',
+                    'Linux' => 'Linux',
+                    'OS' => 'OS',
+                    'Network' => 'Network',
+                    'Computer Science' => 'Computer Science',
+                    'SCL PLC programming' => 'SCL PLC programming',
                 ])->columnSpan('full'),
             ])->columns(2)
         ]);
