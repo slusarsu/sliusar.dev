@@ -73,8 +73,16 @@ class AppServiceProvider extends ServiceProvider
                     'Network' => 'Network',
                     'Computer Science' => 'Computer Science',
                     'SCL PLC programming' => 'SCL PLC programming',
+                    '.Net' => '.Net',
+                    '.Net Core' => '.Net Core',
+                    'C#' => 'C#',
+                    'MSSQL' => 'MSSQL',
+                    'ASP .NET' => 'ASP .NET',
                 ])->columnSpan('full'),
-            ])->collapsible()->columns(2)
+            ])
+                ->reorderableWithButtons()
+                ->collapsible()
+                ->columns(2)
         ]);
     }
 }
