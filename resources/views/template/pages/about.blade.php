@@ -41,7 +41,7 @@
         <div class="list-group my-3">
             @foreach($page->custom_fields['jobs'] as $job)
 
-                <a href="#" class="list-group-item list-group-item-action p-2">
+                <a href="#" class="list-group-item list-group-item-action p-lg-4">
                     <div class="d-lg-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{$job['company']}}</h5>
                         <small class="text-body-secondary">
