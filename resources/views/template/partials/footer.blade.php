@@ -33,18 +33,21 @@
         </div>
         <div class="col-6 col-md">
             <h5>Теги</h5>
-            @foreach(tags() as $tag)
+            <div class="d-flex gap-2">
+                @foreach(tags() as $tag)
 
-                <a href="{{$tag->link()}}">
-                    <h6>
+                    <a href="{{$tag->link()}}">
+                        <h6>
                         <span class="badge bg-secondary">
                             <i class="bi bi-tag-fill"></i>
                             {{$tag->title}}
                         </span>
-                    </h6>
-                </a>
+                        </h6>
+                    </a>
 
-            @endforeach
+                @endforeach
+            </div>
+
         </div>
     </div>
 </footer>
