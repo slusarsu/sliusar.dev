@@ -44,6 +44,11 @@ class AppServiceProvider extends ServiceProvider
                 ->columnSpan('full'),
         ]);
 
+//        CustomFieldService::setCustomFields('post', [
+//            TextInput::make('custom_fields.video_link')
+//                ->label(trans('dashboard.video_link')),
+//        ]);
+
         CustomFieldService::setCustomFields('about', [
             RichEditor::make('custom_fields.education')
                 ->columnSpan('full'),
