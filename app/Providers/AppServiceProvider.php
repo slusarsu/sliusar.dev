@@ -84,6 +84,10 @@ class AppServiceProvider extends ServiceProvider
                     'Hosting' => 'Hosting',
                     'OpenCart' => 'OpenCart',
                     'CMS' => 'CMS',
+                    'Docker' => 'Docker',
+                    'Elasticsearch' => 'Elasticsearch',
+                    'OAuth' => 'OAuth',
+                    'SSO' => 'SSO',
                 ])->columnSpan('full'),
             ])
                 ->reorderableWithButtons()
