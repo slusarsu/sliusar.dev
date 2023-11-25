@@ -33,7 +33,7 @@
         </div>
         <div class="col-6 col-md">
             <h5>Теги</h5>
-            <div class="d-flex flex-row gap-2">
+            <div class="d-flex flex-wrap gap-2">
                 @foreach(tags() as $tag)
 
                     <a href="{{$tag->link()}}">
