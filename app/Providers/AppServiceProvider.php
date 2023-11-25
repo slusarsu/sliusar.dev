@@ -78,6 +78,7 @@ class AppServiceProvider extends ServiceProvider
                     'C#' => 'C#',
                     'MSSQL' => 'MSSQL',
                     'ASP .NET' => 'ASP .NET',
+                    'Angular.js' => 'Angular.js',
                 ])->columnSpan('full'),
             ])
                 ->reorderableWithButtons()
