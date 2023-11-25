@@ -74,7 +74,7 @@ class AppServiceProvider extends ServiceProvider
                     'Computer Science' => 'Computer Science',
                     'SCL PLC programming' => 'SCL PLC programming',
                 ])->columnSpan('full'),
-            ])->columns(2)
+            ])->collapsible()->columns(2)
         ]);
     }
 }
