@@ -23,18 +23,21 @@
             </p>
         </div>
     </div>
+    @if(!empty($page->custom_fields['education']))
+        <h3 class="text-center my-3">Education</h3>
 
-    <h3 class="text-center my-3">Education</h3>
-
-    <div class="card">
-        <div class="card-body">
-            {!! $page->custom_fields['education'] ?? ''!!}
+        <div class="card">
+            <div class="card-body">
+                {!! $page->custom_fields['education'] ?? ''!!}
+            </div>
         </div>
-    </div>
+    @endif
 
-    <h3 class="text-center my-3">Jobs</h3>
 
     @if(!empty($page->custom_fields['jobs']))
+
+        <h3 class="text-center my-3">Jobs</h3>
+
         <div class="list-group my-3">
             @foreach($page->custom_fields['jobs'] as $job)
 
