@@ -34,25 +34,27 @@
 
     <h3 class="text-center my-3">Jobs</h3>
 
-    <div class="list-group my-3">
-        @foreach($page->custom_fields['jobs'] as $job)
+    @if(!empty($page->custom_fields['jobs']))
+        <div class="list-group my-3">
+            @foreach($page->custom_fields['jobs'] as $job)
 
-            <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">{{$job['company']}}</h5>
-                    <small class="text-body-secondary">
-                        {{$job['start_date']}} - {{$job['end_date'] ?? 'Now'}}
-                    </small>
-                </div>
-                <p class="mb-1">{{$job['position']}}</p>
-                <small class="text-body-secondary">{!! $job['description'] !!}</small>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{$job['company']}}</h5>
+                        <small class="text-body-secondary">
+                            {{$job['start_date']}} - {{$job['end_date'] ?? 'Now'}}
+                        </small>
+                    </div>
+                    <p class="mb-1">{{$job['position']}}</p>
+                    <small class="text-body-secondary">{!! $job['description'] !!}</small>
 
-                @foreach($job['technologies'] as $key => $tech)
-                    <span class="badge bg-secondary">{{$tech}}</span>
-                @endforeach
-            </a>
-        @endforeach
+                    @foreach($job['technologies'] as $key => $tech)
+                        <span class="badge bg-secondary">{{$tech}}</span>
+                    @endforeach
+                </a>
+            @endforeach
 
-    </div>
+        </div>
+    @endif
 
 @endsection
