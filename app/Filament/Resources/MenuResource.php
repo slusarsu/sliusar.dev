@@ -6,6 +6,7 @@ use App\Filament\Resources\MenuResource\Pages;
 use App\Models\Menu;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -58,6 +59,10 @@ class MenuResource extends Resource
                         ->label(trans('dashboard.link_hash'))
                         ->default(Str::random(15))
                         ->disabledOn('edit'),
+
+                    Select::make('position')
+                        ->label(trans('dashboard.position'))
+                        ->options(themeSettings()['menu_positions'] ?? []),
 
                     Repeater::make('links')
                         ->label(trans('dashboard.links'))

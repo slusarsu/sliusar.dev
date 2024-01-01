@@ -4,13 +4,13 @@ namespace App\Providers;
 
 use App\Services\CustomFieldService;
 use App\Services\SettingService;
+use App\Services\ThemeService;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,9 +29,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginator::useBootstrapFive();
-
         View::share('settings', SettingService::values());
+        View::share('themeSettings', themeSettings());
+
+        ThemeService::getThemeFunctions(SettingService::value('theme'));
 
         CustomFieldService::setCustomFields('seo_fields', [
             TextInput::make('seo_title')

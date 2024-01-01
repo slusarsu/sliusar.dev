@@ -20,7 +20,7 @@ class TagController extends Controller
     {
         $tags = $this->tagService->getAll();
 
-        return view('template.tags.index', compact('tags'));
+        return themeView('tags.index', compact('tags'));
     }
 
     public function show(Request $request, $slug)
@@ -29,6 +29,6 @@ class TagController extends Controller
 
         $posts = $this->postService->getAllByTagSlug($slug, 15);
 
-        return view('template.tags.tag', compact('tag', 'posts'));
+        return themeView('tags.tag', compact('tag', 'posts'));
     }
 }

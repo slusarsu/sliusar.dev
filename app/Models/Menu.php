@@ -13,6 +13,7 @@ class Menu extends Model
         'title',
         'hash',
         'links',
+        'position',
         'is_enabled',
     ];
 

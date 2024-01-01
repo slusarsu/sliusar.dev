@@ -21,7 +21,7 @@ class PageController extends Controller
     {
         $posts = $this->postService->getAll(15);
 
-        return view('template.index', compact('posts'));
+        return themeView('index', compact('posts'));
     }
     public function show(Request $request, $slug)
     {
@@ -36,8 +36,8 @@ class PageController extends Controller
         $template = $page->template ?? 'page';
         $templateName = PageService::getPageTemplateName($template);
 
-        return view(
-            'template.pages.'.$templateName,
+        return themeView(
+            'pages.'.$templateName,
             compact('page', 'thumb', 'images')
         );
     }

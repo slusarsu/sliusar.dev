@@ -141,7 +141,6 @@ class PostResource extends Resource
                             ->label(trans('dashboard.images'))
                             ->icon('heroicon-o-film')
                             ->schema([
-
                                 FileUpload::make('thumb')
                                     ->label(trans('dashboard.thumb'))
                                     ->directory('images')

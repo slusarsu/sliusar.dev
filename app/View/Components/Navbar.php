@@ -19,7 +19,7 @@ class Navbar extends Component
      */
     public function __construct(?string $hash)
     {
-        $this->links = MenuService::links($hash);
+        $this->links = MenuService::hashLinks($hash);
     }
 
     /**

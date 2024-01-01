@@ -128,7 +128,9 @@ class PageResource extends Resource
 
                                 FileUpload::make('images')
                                     ->label(trans('dashboard.images'))
-                                    ->directory('images')->multiple()->image()
+                                    ->directory('images')
+                                    ->multiple()
+                                    ->image()
                             ])  ,
 
                         Tab::make('Custom Fields')

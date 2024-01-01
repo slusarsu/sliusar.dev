@@ -4,9 +4,11 @@ namespace App\Filament\Pages;
 
 use App\Services\CustomFieldService;
 use App\Services\SettingService;
+use App\Services\ThemeService;
 use Filament\Actions\Action;
 use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Tabs\Tab;
 use Filament\Forms\Components\Textarea;
@@ -78,6 +80,12 @@ class Settings extends Page implements HasForms
                                 TextInput::make('site_name'),
                                 Textarea::make('header_codes'),
                                 Textarea::make('footer_codes'),
+                                Select::make('theme')
+                                    ->options(
+                                        resolve(ThemeService::class)->getAllTemplatesNames()
+                                    )
+                                    ->default('default')
+                                    ->required(),
                             ]),
 
                         Tab::make('Home Page')

@@ -8,7 +8,7 @@ class PageService
 {
     public static function getListOfPageTemplates(): array
     {
-        return AdmService::getViewBladeFileNames('template/pages');
+        return AdmService::getViewBladeFileNames(SettingService::value('theme').'/pages');
     }
 
     public static function getPageTemplateName(string $templateName): string
