@@ -9,8 +9,9 @@
         <div class="container">
             <div class="cs-main__header__in">
                 <div class="cs-main__header__left">
-                    <a class="cs-site__branding" href="/">
-                        <img src="{{asset('themes/lala/assets/img/logo-icon.svg')}}" alt="Lala">
+                    <a href="/">
+{{--                        <img src="{{asset('themes/lala/assets/img/logo-icon.svg')}}" alt="Lala">--}}
+                        <h2 class="text-white">{{$settings['site_name']}}</h2>
                     </a>
                 </div>
                 <div class="cs-main__header__right">
@@ -39,7 +40,7 @@
 <section class="cs-page__head cs-style1 cs-center text-center">
     <div class="container">
         <div class="cs-page__head__in">
-            <h1 class="cs-page__head__title">Recent Blog’s</h1>
+            <h1 class="cs-page__head__title">{{$settings['site_slogan']}}</h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active">Blog List</li>

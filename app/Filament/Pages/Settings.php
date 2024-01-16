@@ -78,6 +78,7 @@ class Settings extends Page implements HasForms
                         Tab::make('Global')
                             ->schema([
                                 TextInput::make('site_name'),
+                                TextInput::make('site_slogan'),
                                 Textarea::make('header_codes'),
                                 Textarea::make('footer_codes'),
                                 Select::make('theme')
