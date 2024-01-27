@@ -10,7 +10,7 @@
         <div class="col-12 col-md-2">
             <h5>Посилання</h5>
             <ul class="list-unstyled text-small">
-                @foreach(menuHashLinks($settings['footer_menu_hash'] ?? '') as $link)
+                @foreach(menuPositionLinks('social') as $link)
                     <li class="mb-1">
                         <a class="link-secondary text-decoration-none" href="{{$link['url']}}" target="_blank">
                             {{$link['text']}}

@@ -14,7 +14,7 @@
     </head>
     <body>
 
-        <x-navbar :hash="$settings['navbar_menu_hash'] ?? ''"/>
+        @include('themes.default.partials.navbar')
 
         <div class="container">
             @yield('content')

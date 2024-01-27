@@ -44,7 +44,7 @@
             </div><!-- .col -->
             <div class="col-lg-3 col-sm-6">
                 <div class="cs-footer__item widget_nav_menu">
-                    <h2 class="cs-widget__title">Quick Links</h2>
+                    <h2 class="cs-widget__title">Посилання</h2>
                     <ul class="menu">
                         @foreach(menuPositionLinks('social') as $link)
                             <li>
@@ -60,7 +60,7 @@
         <!-- <div class="cs-height__85 cs-height__lg__40"></div> -->
     </div>
     <div class="cs-copyright text-center">
-        <div class="container">© 2020 - Lala by Laralink. All Rights Reserved.</div>
+        <div class="container">© 2023 - {{date('Y')}} - {{$settings['site_name']}}. Усі права захищені.</div>
     </div>
     <div class="cs-parallax__shape cs-position1">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="13px">
