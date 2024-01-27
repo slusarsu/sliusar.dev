@@ -15,7 +15,7 @@ class MenuService
 
     public static function positionLinks(string $position = '')
     {
-        $menu = Menu::query()->where('position', $position)->first();
+        $menu = Menu::query()->where('position', $position)->where('is_enabled', 1)->first();
 
         return $menu ? $menu->links : [];
     }
