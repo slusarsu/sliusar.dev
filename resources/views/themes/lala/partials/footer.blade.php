@@ -18,13 +18,15 @@
             </div><!-- .col -->
             <div class="col-lg-3 col-sm-6">
                 <div class="cs-footer__item widget_nav_menu">
-                    <h2 class="cs-widget__title">Services</h2>
+                    <h2 class="cs-widget__title">Категорії</h2>
                     <ul class="menu">
-                        <li><a href="#">IT Consultant</a></li>
-                        <li><a href="#">Business Growth</a></li>
-                        <li><a href="#">Investent Plan</a></li>
-                        <li><a href="#">Product Development</a></li>
-                        <li><a href="#">Industrial Consultant</a></li>
+                        @foreach(categories() as $category)
+                            <li>
+                                <a href="{{$category->link()}}">
+                                    {{$category->title}}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div><!-- .col -->
@@ -44,11 +46,13 @@
                 <div class="cs-footer__item widget_nav_menu">
                     <h2 class="cs-widget__title">Quick Links</h2>
                     <ul class="menu">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Contact</a></li>
+                        @foreach(menuPositionLinks('social') as $link)
+                            <li>
+                                <a href="{{$link['url']}}" target="_blank">
+                                    {{$link['text']}}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div><!-- .col -->

@@ -5,6 +5,7 @@ return [
     'author' => 'Me',
 
     'menu_positions' => [
-        'top' => 'TOP'
+        'top' => 'Top Menu',
+        'social' => 'Social Links'
     ],
 ];
