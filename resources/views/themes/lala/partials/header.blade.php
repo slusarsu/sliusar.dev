@@ -41,10 +41,10 @@
     <div class="container">
         <div class="cs-page__head__in">
             <h1 class="cs-page__head__title">{{$settings['site_slogan']}}</h1>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Blog List</li>
-            </ol>
+{{--            <ol class="breadcrumb">--}}
+{{--                <li class="breadcrumb-item"><a href="index.html">Home</a></li>--}}
+{{--                <li class="breadcrumb-item active">Blog List</li>--}}
+{{--            </ol>--}}
         </div>
     </div>
 </section>
