@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{{asset('themes/lala/assets/css/animated-headline.css')}}">
 <link rel="stylesheet" href="{{asset('themes/lala/assets/css/style.css')}}">
 
-{{--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" />--}}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-okaidia.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" />
+{{--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-okaidia.css" />--}}
 <script defer src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
 
