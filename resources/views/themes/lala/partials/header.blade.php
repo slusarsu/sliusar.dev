@@ -1,6 +1,6 @@
 <div class="cs-preloader">
     <div class="cs-preloader__in">
-        <img src="{{asset('themes/lala/assets/img/logo-icon.svg')}}" alt="">
+        <img src="{{asset('themes/lala/assets/img/loader.png')}}" alt="">
     </div>
 </div>
 <!-- Start Header Section -->
