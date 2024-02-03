@@ -179,6 +179,10 @@ class PostResource extends Resource
                 TextColumn::make('id')
                     ->sortable(),
 
+                TextColumn::make('views')
+                    ->sortable()
+                    ->label(trans('dashboard.views')),
+
                 ToggleColumn::make('is_enabled')
                     ->label(trans('dashboard.enabled')),
 

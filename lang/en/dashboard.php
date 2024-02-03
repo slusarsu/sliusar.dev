@@ -121,4 +121,5 @@ return [
     'not_sent' => 'Not Sent',
     'error_sent' => 'Error Sent',
     'video_link' => 'Video Link',
+    'views' => 'Views',
 ];
