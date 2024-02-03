@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Services\SettingService;
+use BezhanSalleh\FilamentGoogleAnalytics\Widgets\PageViewsWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -45,6 +46,17 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
+                PageViewsWidget::class,
+//                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\VisitorsWidget::class,
+//                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersOneDayWidget::class,
+//                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersSevenDayWidget::class,
+//                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\ActiveUsersTwentyEightDayWidget::class,
+//                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsWidget::class,
+//                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsDurationWidget::class,
+//                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsByCountryWidget::class,
+//                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\SessionsByDeviceWidget::class,
+//                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\MostVisitedPagesWidget::class,
+//                \BezhanSalleh\FilamentGoogleAnalytics\Widgets\TopReferrersListWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
