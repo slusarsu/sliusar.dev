@@ -3,7 +3,6 @@
 namespace App\Providers\Filament;
 
 use App\Services\SettingService;
-use BezhanSalleh\FilamentGoogleAnalytics\Widgets\PageViewsWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
