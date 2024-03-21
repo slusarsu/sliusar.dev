@@ -63,6 +63,13 @@ return [
             'throw' => true,
         ],
 
+        'lang' => [
+            'driver' => 'local',
+            'root' => lang_path('/'),
+            'visibility' => 'public',
+            'throw' => true,
+        ],
+
     ],
 
     /*

@@ -1,6 +1,7 @@
 <?php
 
 use App\Services\CategoryService;
+use App\Services\ChunkService;
 use App\Services\SettingService;
 use App\Services\ThemeService;
 use App\Services\MenuService;
@@ -23,6 +24,10 @@ function menuHashLinks(string $hash) {
 function menuPositionLinks(string $position) {
     return MenuService::positionLinks($position);
 }
+
+//function chunkPosition(string $position) {
+//    return ChunkService::positionChunk($position);
+//}
 
 function categories() {
     return CategoryService::getAllParents();

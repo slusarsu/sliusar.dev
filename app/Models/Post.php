@@ -6,6 +6,7 @@ use App\Traits\ContentTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Post extends Model
@@ -49,6 +50,11 @@ class Post extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
     public function link(): string

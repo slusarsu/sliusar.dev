@@ -8,4 +8,8 @@ return [
         'top' => 'Top Menu',
         'social' => 'Social Links'
     ],
+
+    'chunk_positions' => [
+        'footer_text' => 'Footer text',
+    ],
 ];

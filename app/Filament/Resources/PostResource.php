@@ -204,9 +204,10 @@ class PostResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                Filter::make('Only enabled')
+                Filter::make('only_enabled')
+                    ->label(trans('dashboard.only_enabled'))
                     ->query(fn (Builder $query): Builder => $query->where('is_enabled', true))
-                    ->toggle()
+                    ->toggle(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -222,7 +223,7 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\CommentsRelationManager::class,
         ];
     }
 

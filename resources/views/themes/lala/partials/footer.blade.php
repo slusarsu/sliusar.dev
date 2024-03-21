@@ -60,7 +60,7 @@
         <!-- <div class="cs-height__85 cs-height__lg__40"></div> -->
     </div>
     <div class="cs-copyright text-center">
-        <div class="container">© 2023 - {{date('Y')}} - {{$settings['site_name']}}. Усі права захищені.</div>
+        <div class="container">© 2023 - {{date('Y')}} - {{$settings['site_name']}}. Усі права захищені <x-adm.chunk.position position="footer_text"/>.</div>
     </div>
     <div class="cs-parallax__shape cs-position1">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="13px">
