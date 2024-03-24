@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
              'email' => 'admin@admin.test',
          ]);
 
-         $adminRole = Role::query()->create([
+         $adminRole = Role::query()->firstOrCreate([
              'name' => 'admin',
              'guard_name' => 'web',
          ]);
