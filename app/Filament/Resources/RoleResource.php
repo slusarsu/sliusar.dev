@@ -2,9 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Models\User;
+use App\Filament\Resources\RoleResource\Pages;
+use App\Filament\Resources\RoleResource\RelationManagers;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -12,21 +11,19 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Tables\Columns\TagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
-class UserResource extends Resource
+class RoleResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = Role::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
 
     protected static ?string $navigationGroup = 'Authentication';
 
@@ -37,17 +34,17 @@ class UserResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return trans('dashboard.users');
+        return trans('dashboard.roles');
     }
 
     public static function getPluralLabel(): ?string
     {
-        return trans('dashboard.users');
+        return trans('dashboard.roles');
     }
 
     public static function getModelLabel(): string
     {
-        return trans('dashboard.user');
+        return trans('dashboard.role');
     }
 
     public static function form(Form $form): Form
@@ -59,31 +56,14 @@ class UserResource extends Resource
                         TextInput::make('name')
                             ->label(trans('dashboard.name'))
                             ->required(),
-
-                        TextInput::make('email')
-                            ->label(trans('dashboard.email'))
+                        TextInput::make('guard_name')
+                            ->label(trans('dashboard.guard_name'))
                             ->required()
-                            ->email()
-                            ->unique(table: static::$model, ignorable: fn ($record) => $record),
+                            ->default(config('auth.defaults.guard')),
 
-                        TextInput::make('password')
-                            ->label(trans('dashboard.password'))
-                            ->same('passwordConfirmation')
-                            ->password()
-                            ->maxLength(255)
-                            ->required(fn ($component, $get, $livewire, $model, $record, $set, $state) => $record === null)
-                            ->dehydrateStateUsing(fn ($state) => ! empty($state) ? Hash::make($state) : ''),
-
-                        TextInput::make('passwordConfirmation')
-                            ->label(trans('dashboard.password_confirmation'))
-                            ->password()
-                            ->dehydrated(false)
-                            ->maxLength(255),
-
-                        Select::make('roles')
+                        Select::make('permissions')
                             ->multiple()
-                            ->relationship('roles', 'name')
-
+                            ->relationship('permissions', 'name')
                     ])->columns(2)
             ]);
     }
@@ -100,18 +80,9 @@ class UserResource extends Resource
                     ->searchable()
                     ->sortable(),
 
-                TextColumn::make('email')
-                    ->label(trans('dashboard.email'))
+                TextColumn::make('guard_name')
+                    ->label(trans('dashboard.guard_name'))
                     ->searchable()
-                    ->sortable(),
-
-                TextColumn::make('roles.name')
-                    ->label(trans('dashboard.roles'))
-                    ->listWithLineBreaks(),
-
-                TextColumn::make('email_verified_at')
-                    ->label(trans('dashboard.email_verified_at'))
-                    ->dateTime('d.m.Y H:i')
                     ->sortable(),
 
                 TextColumn::make('created_at')
@@ -143,9 +114,9 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+            'index' => Pages\ListRoles::route('/'),
+            'create' => Pages\CreateRole::route('/create'),
+            'edit' => Pages\EditRole::route('/{record}/edit'),
         ];
     }
 }
