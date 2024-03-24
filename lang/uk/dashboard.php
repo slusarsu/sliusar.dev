@@ -86,6 +86,8 @@ return array (
   'pagination_count' => 'Кількість дописів на сторінці',
   'paragraph' => 'Параграф',
   'parent' => 'Батько',
+  'password' => 'Пароль',
+  'password_confirmation' => 'Підтвердити пароль',
   'payload' => 'Данні повідомлення',
   'position' => 'Позиція',
   'post' => 'Допис',
