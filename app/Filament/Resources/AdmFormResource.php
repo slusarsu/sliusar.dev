@@ -29,7 +29,7 @@ class AdmFormResource extends Resource
 {
     protected static ?string $model = AdmForm::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-paper-airplane';
 
     protected static ?string $navigationGroup = 'Forms';
 
