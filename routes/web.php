@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdmFormController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -30,3 +31,5 @@ Route::get('categories', [CategoryController::class, 'index'])->name('categories
 Route::get('categories/{slug}', [CategoryController::class, 'show'])->name('category');
 
 Route::get('{slug}', [PageController::class, 'show'])->name('page');
+
+Route::post('/adm-form/{link_hash}', [AdmFormController::class, 'form'])->name('adm-form');
