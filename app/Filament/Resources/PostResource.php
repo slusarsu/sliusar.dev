@@ -144,6 +144,7 @@ class PostResource extends Resource
                                 FileUpload::make('thumb')
                                     ->label(trans('dashboard.thumb'))
                                     ->directory('images')
+                                    ->imageEditor()
                                     ->image(),
 
                                 FileUpload::make('images')

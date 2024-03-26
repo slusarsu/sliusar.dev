@@ -11,5 +11,9 @@ return [
 
     'chunk_positions' => [
         'footer_text' => 'Footer text',
+    ]
+
+    ,'gallery_positions' => [
+        'top_slider' => 'Top Slider',
     ],
 ];

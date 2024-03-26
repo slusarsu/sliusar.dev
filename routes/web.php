@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdmFormController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/post-search', [PostController::class, 'search'])->name('post-search');
+Route::post('/adm-form/{link_hash}', [AdmFormController::class, 'form'])->name('adm-form');
+Route::post('/add-comment', [CommentController::class, 'store'])->name('add-comment');
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 
@@ -30,6 +33,8 @@ Route::get('tags/{slug}', [TagController::class, 'show'])->name('tag');
 Route::get('categories', [CategoryController::class, 'index'])->name('categories');
 Route::get('categories/{slug}', [CategoryController::class, 'show'])->name('category');
 
+
+
 Route::get('{slug}', [PageController::class, 'show'])->name('page');
 
-Route::post('/adm-form/{link_hash}', [AdmFormController::class, 'form'])->name('adm-form');
+

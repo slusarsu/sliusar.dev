@@ -2,6 +2,7 @@
 
 use App\Services\CategoryService;
 use App\Services\ChunkService;
+use App\Services\GalleryService;
 use App\Services\SettingService;
 use App\Services\ThemeService;
 use App\Services\MenuService;
@@ -25,9 +26,12 @@ function menuPositionLinks(string $position) {
     return MenuService::positionLinks($position);
 }
 
-//function chunkPosition(string $position) {
-//    return ChunkService::positionChunk($position);
-//}
+function galleryHash(string $hash) {
+    return GalleryService::getByHash($hash);
+}
+function galleryHashItems(string $hash) {
+    return GalleryService::getByHashItems($hash);
+}
 
 function categories() {
     return CategoryService::getAllParents();
