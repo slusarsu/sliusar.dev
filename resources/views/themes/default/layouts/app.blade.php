@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{{$seoDescription ?? $settings['seo_description'] ?? ''}}">
         <meta name="keywords" content="{{$seoKeyWords ?? $settings['seo_text_keys'] ?? ''}}">
-        <title>{{$settings['site_name'] ?? ''}} - {{$title ?? $settings['seo_title'] ?? ''}}</title>
+        <title>{{$title ?? $settings['seo_title'] . '-' ?? ''}} {{$settings['site_name'] ?? ''}}</title>
 
         @include('themes.default.partials.header-scripts')
 
