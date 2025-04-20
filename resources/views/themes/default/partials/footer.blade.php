@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 col-md-3">
             <p>Sliusar Software Developer</p>
-            <small class="d-block mb-3 text-body-secondary">&copy; 2023</small>
+            <small class="d-block mb-3 text-body-secondary">&copy; 2023 - {{date('Y')}}</small>
         </div>
         <div class="col-12 col-md-2">
             <h5>Посилання</h5>
