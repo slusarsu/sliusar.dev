@@ -20,7 +20,11 @@ class ThemeService
 
     public static function themeView(string $bladeName, array $params = [])
     {
-        return view(self::templateRecoursePath() .'/'.$bladeName, $params);
+        try {
+            return view(self::templateRecoursePath() .'/'.$bladeName, $params);
+        } catch (\Exception $exception) {
+            return redirect('/admin')->with('error', 'Template not found');
+        }
     }
 
     public static function themeSettings(string $templateName): array
