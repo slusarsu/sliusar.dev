@@ -97,7 +97,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="p-4 rounded-3 border shadow-soft bg-white">
-                    <div class="d-flex align-items-center mb-2"><i class="bi bi-telephone me-2"></i><a class="link-muted" href="tel:+380663758700">+38 066 375 87 00</a></div>
+{{--                    <div class="d-flex align-items-center mb-2"><i class="bi bi-telephone me-2"></i><a class="link-muted" href="tel:+380663758700">+38 066 375 87 00</a></div>--}}
                     <div class="d-flex align-items-center mb-2"><i class="bi bi-envelope me-2"></i><a class="link-muted" href="mailto:slusarvitaliy@gmail.com">slusarvitaliy@gmail.com</a></div>
                     <div class="d-flex align-items-center"><i class="bi bi-globe me-2"></i><a class="link-muted" href="https://sliusar.dev" target="_blank" rel="noopener">sliusar.dev</a></div>
                 </div>
@@ -309,7 +309,7 @@
                     <p class="text-secondary">Найшвидше — у месенджер або на пошту. В середньому відповідаю швидше, ніж деплойиться Docker.</p>
                     <div class="d-grid gap-2">
                         <a class="btn btn-primary" href="mailto:slusarvitaliy@gmail.com"><i class="bi bi-envelope me-2"></i>Написати на email</a>
-                        <a class="btn btn-outline-primary" href="tel:+380663758700"><i class="bi bi-telephone me-2"></i>Подзвонити</a>
+{{--                        <a class="btn btn-outline-primary" href="tel:+380663758700"><i class="bi bi-telephone me-2"></i>Подзвонити</a>--}}
                     </div>
                     <div class="mt-3 small text-secondary">Також доступний у LinkedIn / GitHub (посилання нижче).</div>
                 </div>
