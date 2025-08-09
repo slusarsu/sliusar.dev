@@ -325,9 +325,9 @@
             </div>
         </div>
         <div class="text-center mt-4">
-            <a class="me-3 link-muted" href="https://github.com/" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
-            <a class="me-3 link-muted" href="https://www.linkedin.com/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> LinkedIn</a>
-            <a class="link-muted" href="https://t.me/" target="_blank" rel="noopener"><i class="bi bi-telegram"></i> Telegram</a>
+{{--            <a class="me-3 link-muted" href="https://github.com/" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>--}}
+            <a class="me-3 link-muted" href="https://www.linkedin.com/in/vitalii-sliusar-07131822/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> LinkedIn</a>
+{{--            <a class="link-muted" href="https://t.me/" target="_blank" rel="noopener"><i class="bi bi-telegram"></i> Telegram</a>--}}
         </div>
     </div>
 </section>
