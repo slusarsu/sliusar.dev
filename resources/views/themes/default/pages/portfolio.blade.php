@@ -76,7 +76,7 @@
                     <a href="#contact" class="btn btn-outline-primary btn-lg"><i class="bi bi-envelope me-2"></i>Зв'язатись</a>
                 </div>
                 <div class="mt-4 text-secondary">
-                    <i class="bi bi-geo-alt"></i> Україна · Віддалено / Київ
+                    <i class="bi bi-geo-alt"></i> Україна · Віддалено
                 </div>
             </div>
             <div class="col-12 col-lg-5 text-center order-1 order-lg-2">
