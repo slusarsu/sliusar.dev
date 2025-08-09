@@ -58,6 +58,7 @@
                 <li class="nav-item"><a class="nav-link" href="#experience">Досвід</a></li>
                 <li class="nav-item"><a class="nav-link" href="#projects">Проєкти</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Контакти</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">Блог</a></li>
             </ul>
         </div>
     </div>
