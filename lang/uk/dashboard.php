@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return array (
   'add_demo' => 'Додати демо дані',
@@ -135,4 +135,5 @@ return array (
   'video_link' => 'Посилання на Відео',
   'view' => 'Вигляд',
   'views' => 'Перегляди',
+    'see_on_site' => 'На сайт',
 );

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return array (
   'add_demo' => 'Add Demo',
@@ -135,4 +135,5 @@ return array (
   'view' => 'View',
   'views' => 'Views',
   'email_verified_at' => 'Email Verified',
+    'see_on_site' => 'See on site',
 );
